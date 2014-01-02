@@ -47,6 +47,10 @@ nmap <Leader>j :wincmd j<CR>
 nmap <Leader>h :wincmd h<CR>
 nmap <Leader>l :wincmd l<CR>
 
+nmap <Leader>v <C-W>v
+nmap <Leader>s <C-W>s
+nmap <Leader>d <C-W>q
+
 " Syntastic
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_mode_map = { 'mode': 'active',
