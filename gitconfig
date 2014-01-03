@@ -1,7 +1,14 @@
 [alias]
-    lo = log --oneline --abbrev-commit --all --graph --decorate --color
+lo = log --oneline --abbrev-commit --all --graph --decorate --color
+st = status
+cm = commit
+br = branch
+co = checkout
+df = diff
+
 [user]
-	email = cydonia572@gmail.com
-	name = Cydonia7
+email = cydonia572@gmail.com
+name = Cydonia7
+
 [core]
-	excludesfile = ~/.gitignore
+excludesfile = ~/.gitignore
