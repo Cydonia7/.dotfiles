@@ -1,0 +1,7 @@
+[alias]
+    lo = log --oneline --abbrev-commit --all --graph --decorate --color
+[user]
+	email = cydonia572@gmail.com
+	name = Cydonia7
+[core]
+	excludesfile = ~/.gitignore
