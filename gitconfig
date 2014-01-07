@@ -9,12 +9,12 @@ addm = !git-ls-files -m -z | xargs -0 git-add && git status
 addu = !git-ls-files -o --exclude-standard -z | xargs -0 git-add && git status
 rmm = !git ls-files -d -z | xargs -0 git-rm && git status
 
+[color]
+ui = auto
+
 [user]
 email = cydonia572@gmail.com
 name = Cydonia7
 
 [core]
 excludesfile = ~/.gitignore
-
-[push]
-default = simple
