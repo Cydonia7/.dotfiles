@@ -18,6 +18,9 @@ set expandtab
 set smarttab 
 set tw=0
 
+" Specific filetype options
+au BufRead,BufNewFile *.md set filetype=markdown
+
 " Molokai with 256 colors
 let g:rehash256 = 1
 colorscheme molokai
