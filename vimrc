@@ -65,3 +65,6 @@ map <Leader>m :Errors<CR>
 
 " Fugitive
 nmap <Leader>gs :Gstatus<CR>
+
+" Auto-completion
+let g:neocomplcache_enable_at_startup = 1
