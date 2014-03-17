@@ -1,1 +1,1 @@
-set guifont=Source\ Code\ Pro\ 9
+set guifont=Consolas\ 10
