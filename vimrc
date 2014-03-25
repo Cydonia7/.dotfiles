@@ -21,11 +21,16 @@ set tw=0
 " Specific filetype options
 au BufRead,BufNewFile *.md set filetype=markdown
 
-" Molokai with 256 colors
-let g:rehash256 = 1
-colorscheme molokai
-set background=dark
+" 256 couleurs dans le terminal
 set t_Co=256
+let g:rehash256 = 1
+
+" Tomorrow
+" colorscheme Tomorrow-Night
+
+" Molokai
+set background=dark
+colorscheme molokai
 
 " Airline
 set laststatus=2
