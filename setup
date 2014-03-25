@@ -13,3 +13,6 @@ create_link vimrc
 create_link tmux.conf
 create_link gitignore
 create_link gitconfig
+cd ~/.dotfiles
+git submodule init
+git submodule update
