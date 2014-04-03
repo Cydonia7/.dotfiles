@@ -7,6 +7,7 @@ create_link()
     echo -e "\e[1;32mCréation du lien symbolique $1\e[0m"
 }
 
+create_link zshrc
 create_link gvimrc
 create_link vim
 create_link vimrc
