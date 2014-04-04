@@ -21,7 +21,7 @@ set tw=0
 " Specific filetype options
 au BufRead,BufNewFile *.md set filetype=markdown
 
-" 256 couleurs dans le terminal
+" 256 colors in term
 set t_Co=256
 let g:rehash256 = 1
 
@@ -70,6 +70,3 @@ map <Leader>m :Errors<CR>
 
 " Fugitive
 nmap <Leader>gs :Gstatus<CR>
-
-" Auto-completion
-let g:neocomplcache_enable_at_startup = 1
