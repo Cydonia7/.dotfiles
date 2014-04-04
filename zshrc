@@ -1,5 +1,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
+alias tmux="tmux -2"
+
 ZSH_THEME="af-magic"
 plugins=(git)
 
