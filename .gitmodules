@@ -25,9 +25,6 @@
 [submodule "vim/bundle/neocomplcache"]
 	path = vim/bundle/neocomplcache
 	url = https://github.com/Shougo/neocomplcache.vim
-[submodule "vim/bundle/neocomplcache-ultisnips"]
-	path = vim/bundle/neocomplcache-ultisnips
-	url = https://github.com/JazzCore/neocomplcache-ultisnips
 [submodule "vim/bundle/tomorrow-theme"]
 	path = vim/bundle/tomorrow-theme
 	url = https://github.com/d11wtq/tomorrow-theme-vim/
