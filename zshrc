@@ -54,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl"
+# export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -73,4 +73,6 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-export CLASSPATH="$CLASSPATH:/home/thomas/Prog/jar-libs/*:."
+if [ -f ~/.zshrc_local ]; then
+    source ~/.zshrc_local
+fi
