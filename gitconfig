@@ -19,3 +19,6 @@ name = Cydonia7
 
 [core]
 excludesfile = ~/.gitignore
+
+[push]
+default = simple

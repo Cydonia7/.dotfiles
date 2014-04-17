@@ -70,3 +70,7 @@ map <Leader>m :Errors<CR>
 
 " Fugitive
 nmap <Leader>gs :Gstatus<CR>
+
+" Latex-Box
+let g:LatexBox_latexmk_options = "-pvc -pdfps"
+nmap <Leader>r :Latexmk<CR>
