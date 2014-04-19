@@ -74,3 +74,8 @@ nmap <Leader>gs :Gstatus<CR>
 " Latex-Box
 let g:LatexBox_latexmk_options = "-pvc -pdfps"
 nmap <Leader>r :Latexmk<CR>
+
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
