@@ -22,5 +22,6 @@ excludesfile = ~/.gitignore
 
 [push]
 default = simple
+
 [http]
-	sslVerify = false
+sslVerify = false
