@@ -21,7 +21,7 @@ name = Cydonia7
 excludesfile = ~/.gitignore
 
 [push]
-default = simple
+default = current
 
 [http]
 sslVerify = false
