@@ -34,6 +34,3 @@
 [submodule "vim/bundle/ultisnips"]
 	path = vim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips
-[submodule "vim/bundle/ultisnips-snippets"]
-	path = vim/bundle/ultisnips-snippets
-	url = https://github.com/dhruvasagar/ultisnips-snippets
