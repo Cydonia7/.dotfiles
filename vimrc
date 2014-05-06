@@ -20,6 +20,7 @@ set tw=0
 
 " Specific filetype options
 au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.html.twig set filetype=html
 
 " 256 colors in term
 set t_Co=256
