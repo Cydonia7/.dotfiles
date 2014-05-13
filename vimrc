@@ -73,7 +73,7 @@ map <Leader>m :Errors<CR>
 nmap <Leader>gs :Gstatus<CR>
 
 " Latex-Box
-let g:LatexBox_latexmk_options = "-pvc -pdfps"
+let g:LatexBox_latexmk_options = "-pvc -pdf"
 nmap <Leader>r :Latexmk<CR>
 
 " Ultisnips
