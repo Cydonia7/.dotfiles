@@ -5,3 +5,7 @@ __pycache__
 out
 *.iml
 .DS_Store
+*.nav
+*.snm
+*.vrb
+*.synctex.gz
