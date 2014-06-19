@@ -9,3 +9,5 @@ out
 *.snm
 *.vrb
 *.synctex.gz
+*.log
+*_log
