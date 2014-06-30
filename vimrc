@@ -80,3 +80,12 @@ nmap <Leader>r :Latexmk<CR>
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" Disable readonly on write
+function! g:ChmodOnWrite()
+  if v:cmdbang
+    silent !chmod u+w %
+  endif
+endfunction
+
+autocmd BufWrite * call g:ChmodOnWrite()
