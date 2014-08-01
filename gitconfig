@@ -15,7 +15,7 @@ ui = auto
 
 [user]
 email = cydonia572@gmail.com
-name = Cydonia7
+name = Thomas Royer
 
 [core]
 excludesfile = ~/.gitignore
