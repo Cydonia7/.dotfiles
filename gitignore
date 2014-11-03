@@ -13,3 +13,4 @@ out
 *_log
 tags
 dandelion.yml
+*.pyc

@@ -67,6 +67,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
         \ 'passive_filetypes': ['html'] }
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
 map <Leader>m :Errors<CR>
 
 " Fugitive
