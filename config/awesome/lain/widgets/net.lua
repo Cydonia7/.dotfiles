@@ -35,7 +35,7 @@ function net.get_device()
     if ws ~= nil then
         return ws:gsub(": UP", "")
     else
-        return "network off"
+        return "Pas de réseau"
     end
 end
 

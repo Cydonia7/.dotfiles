@@ -33,16 +33,16 @@ local function worker(args)
     bat.widget = wibox.widget.textbox('')
 
     bat_notification_low_preset = {
-        title = "Battery low",
-        text = "Plug the cable!",
+        title = "Batterie faible",
+        text = "Branchez le cable",
         timeout = 15,
         fg = "#202020",
         bg = "#CDCDCD"
     }
 
     bat_notification_critical_preset = {
-        title = "Battery exhausted",
-        text = "Shutdown imminent",
+        title = "Batterie presque vide",
+        text = "Extinction imminente",
         timeout = 15,
         fg = "#000000",
         bg = "#FFFFFF"
