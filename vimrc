@@ -29,9 +29,12 @@ let g:rehash256 = 1
 " Tomorrow
 " colorscheme Tomorrow-Night
 
-" Molokai
+" Molokai + transparent background
 set background=dark
 colorscheme molokai
+
+hi Normal ctermfg=252 ctermbg=none
+hi LineNr ctermfg=239 ctermbg=none
 
 " Airline
 set laststatus=2
