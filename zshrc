@@ -15,3 +15,4 @@ if [ -f ~/.zshrc_local ]; then
 fi
 
 export TERM=xterm-256color
+alias copy="xclip -in -selection clipboard"
