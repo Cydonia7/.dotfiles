@@ -1,5 +1,7 @@
 *.swp
 *.swo
+*.swm
+*.swn
 __pycache__
 .idea
 out

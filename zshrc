@@ -8,7 +8,7 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-EDITOR="vim"
+export EDITOR="vim"
 
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
