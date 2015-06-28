@@ -33,16 +33,16 @@ local function worker(args)
     bat.widget = wibox.widget.textbox('')
 
     bat_notification_low_preset = {
-        title = "Batterie faible",
-        text = "Branchez le cable",
+        title = "Battery low",
+        text = "Plug the cable!",
         timeout = 15,
         fg = "#202020",
         bg = "#CDCDCD"
     }
 
     bat_notification_critical_preset = {
-        title = "Batterie presque vide",
-        text = "Extinction imminente",
+        title = "Battery exhausted",
+        text = "Shutdown imminent",
         timeout = 15,
         fg = "#000000",
         bg = "#FFFFFF"
@@ -130,14 +130,12 @@ local function worker(args)
                 bat.id = naughty.notify({
                     preset = bat_notification_critical_preset,
                     replaces_id = bat.id,
-                    screen = client.focus and client.focus.screen or 1
                 }).id
             elseif nperc <= 15
             then
                 bat.id = naughty.notify({
                     preset = bat_notification_low_preset,
                     replaces_id = bat.id,
-                    screen = client.focus and client.focus.screen or 1
                 }).id
             end
         end

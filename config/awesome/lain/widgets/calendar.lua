@@ -30,24 +30,20 @@ function calendar:hide()
     end
 end
 
-function calendar:show(t_out, inc_offset)
+function calendar:show(t_out, inc_offset, scr)
     calendar:hide()
 
     local offs = inc_offset or 0
     local tims = t_out or 0
     local f, c_text
     local today = tonumber(os.date('%d'))
-    local init_t = calendar.cal .. ' | sed -r -e "s/(^| )( '
+    local init_t = calendar.cal .. ' ' .. calendar.post_cal  .. ' ' .. 
+        ' | sed -r -e "s/_\\x08//g" | sed -r -e "s/(^| )('
 
     calendar.offset = calendar.offset + offs
 
     if offs == 0 or calendar.offset == 0
     then -- current month showing, today highlighted
-        if today >= 10
-        then
-           init_t = calendar.cal .. ' | sed -r -e "s/_\\x08//g" | sed -r -e "s/(^| )('
-        end
-
         calendar.offset = 0
         calendar.notify_icon = calendar.icons .. today .. ".png"
 
@@ -81,7 +77,8 @@ function calendar:show(t_out, inc_offset)
 
        calendar.notify_icon = nil
 
-       f = io.popen(calendar.cal .. ' ' .. month .. ' ' .. year)
+       f = io.popen(calendar.cal .. ' ' .. month .. ' ' .. year .. ' ' .. 
+            calendar.post_cal)
     end
 
     c_text = "<tt><span font='" .. calendar.font .. " "
@@ -99,13 +96,14 @@ function calendar:show(t_out, inc_offset)
         fg = calendar.fg,
         bg = calendar.bg,
         timeout = tims,
-        screen = client.focus and client.focus.screen or 1
+        screen = scr or 1
     })
 end
 
 function calendar:attach(widget, args)
     local args = args or {}
     calendar.cal       = args.cal or "/usr/bin/cal"
+    calendar.post_cal  = args.post_cal or ""
     calendar.icons     = args.icons or icons_dir .. "cal/white/"
     calendar.font      = args.font or beautiful.font:sub(beautiful.font:find(""),
                          beautiful.font:find(" "))
@@ -113,20 +111,21 @@ function calendar:attach(widget, args)
     calendar.fg        = args.fg or beautiful.fg_normal or "#FFFFFF"
     calendar.bg        = args.bg or beautiful.bg_normal or "#FFFFFF"
     calendar.position  = args.position or "top_right"
+    calendar.scr_pos   = args.scr_pos or 1
 
     calendar.offset = 0
     calendar.notify_icon = nil
 
-    widget:connect_signal("mouse::enter", function () calendar:show() end)
+    widget:connect_signal("mouse::enter", function () calendar:show(0, 0, scr_pos) end)
     widget:connect_signal("mouse::leave", function () calendar:hide() end)
     widget:buttons(awful.util.table.join( awful.button({ }, 1, function ()
-                                              calendar:show(0, -1) end),
+                                              calendar:show(0, -1, scr_pos) end),
                                           awful.button({ }, 3, function ()
-                                              calendar:show(0, 1) end),
+                                              calendar:show(0, 1, scr_pos) end),
                                           awful.button({ }, 4, function ()
-                                              calendar:show(0, -1) end),
+                                              calendar:show(0, -1, scr_pos) end),
                                           awful.button({ }, 5, function ()
-                                              calendar:show(0, 1) end)))
+                                              calendar:show(0, 1, scr_pos) end)))
 end
 
 return setmetatable(calendar, { __call = function(_, ...) return create(...) end })
