@@ -569,7 +569,6 @@ globalkeys = awful.util.table.join(
 
     -- User programs
     awful.key({ modkey }, "c", function () awful.util.spawn(browser) end),
-    awful.key({ modkey }, "t", function () awful.util.spawn("thunar") end),
 
     -- Prompt
     awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
@@ -680,9 +679,6 @@ awful.rules.rules = {
 
     { rule = { instance = "plugin-container" },
           properties = { floating=true, focus=yes } },
-
-	  { rule = { class = "Gimp" },
-     	    properties = { tag = tags[1][4] } },
 
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized_horizontal = true,
