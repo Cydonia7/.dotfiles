@@ -60,12 +60,12 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/multicolor/theme.lu
 -- common
 modkey     = "Mod4"
 altkey     = "Mod1"
-terminal   = "terminator"
-editor     = "vim"
+terminal   = "urxvtc" or "xterm"
+editor     = os.getenv("EDITOR") or "nano" or "vi"
 editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
-browser    = "firefox"
+browser    = "dwb"
 browser2   = "iron"
 gui_editor = "gvim"
 graphics   = "gimp"
@@ -87,8 +87,8 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = { "1", "2", "3", "4", "5", "6" },
-   layout = { layouts[2], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2] }
+   names = { "web", "term", "docs", "media", "files", "other" },
+   layout = { layouts[1], layouts[3], layouts[4], layouts[1], layouts[7], layouts[1] }
 }
 for s = 1, screen.count() do
 -- Each screen has its own tag table.
@@ -265,14 +265,6 @@ mpdwidget = lain.widgets.mpd({
 -- Spacer
 spacer = wibox.widget.textbox(" ")
 
---inscrits = lain.widgets.abase({
---    timeout  = 120,
---    cmd      = "inscrits",
---    settings = function() 
---        widget:set_markup(markup("#f1af5f", output))
---    end
---})
-
 -- }}}
 
 -- {{{ Layout
@@ -362,7 +354,6 @@ for s = 1, screen.count() do
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     --right_layout:add(mailicon)
     --right_layout:add(mailwidget)
-    --right_layout:add(inscrits)
     right_layout:add(netdownicon)
     right_layout:add(netdowninfo)
     right_layout:add(netupicon)
@@ -507,8 +498,7 @@ globalkeys = awful.util.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r",      awesome.restart),
-    --awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
-    awful.key({ modkey, "Shift"   }, "q",      function() awful.util.spawn("shutdown now") end),
+    awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
 
     -- Dropdown terminal
     awful.key({ modkey,	          }, "z",      function () drop(terminal) end),
@@ -564,11 +554,13 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Copy to clipboard
-    --awful.key({ modkey }, "c", function () os.execute("xsel -p -o | xsel -i -b") end),
+    awful.key({ modkey }, "c", function () os.execute("xsel -p -o | xsel -i -b") end),
 
     -- User programs
-    awful.key({ modkey }, "c", function () awful.util.spawn(browser) end),
-    awful.key({ modkey }, "t", function () awful.util.spawn("thunar") end),
+    awful.key({ modkey }, "q", function () awful.util.spawn(browser) end),
+    awful.key({ modkey }, "i", function () awful.util.spawn(browser2) end),
+    awful.key({ modkey }, "s", function () awful.util.spawn(gui_editor) end),
+    awful.key({ modkey }, "g", function () awful.util.spawn(graphics) end),
 
     -- Prompt
     awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
@@ -678,7 +670,7 @@ awful.rules.rules = {
           properties = { tag = tags[1][1] } },
 
     { rule = { instance = "plugin-container" },
-          properties = { floating=true, focus=yes } },
+          properties = { tag = tags[1][1] } },
 
 	  { rule = { class = "Gimp" },
      	    properties = { tag = tags[1][4] } },
