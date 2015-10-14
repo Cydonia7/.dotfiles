@@ -77,9 +77,7 @@ map <Leader>m :Errors<CR>
 " Fugitive
 nmap <Leader>gs :Gstatus<CR>
 
-" Latex-Box
-let g:LatexBox_latexmk_options = "-pvc -pdf"
-nmap <Leader>r :Latexmk<CR>
+nnoremap <Leader>q :!pdflatex *.tex<CR><CR>
 
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<c-j>"
