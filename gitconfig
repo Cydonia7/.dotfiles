@@ -9,7 +9,7 @@ addm = !git-ls-files -m -z | xargs -0 git-add && git status
 addu = !git-ls-files -o --exclude-standard -z | xargs -0 git-add && git status
 rmm = !git ls-files -d -z | xargs -0 git-rm && git status
 lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-oups = git commit --amend -C HEAD
+oups = commit --amend -C HEAD
 
 [color]
 ui = auto
