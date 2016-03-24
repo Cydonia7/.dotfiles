@@ -17,3 +17,5 @@ fi
 export TERM=xterm-256color
 alias copy="xclip -in -selection clipboard"
 alias cgrep="grep --color=always"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
