@@ -1,4 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh
+export UPDATE_ZSH_DAYS=60
 
 alias tmux="tmux -2"
 alias latexmk="latexmk -pdf -pvc"
