@@ -16,3 +16,4 @@ out
 tags
 dandelion.yml
 *.pyc
+phpunit

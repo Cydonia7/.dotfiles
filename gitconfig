@@ -15,7 +15,7 @@ oups = commit --amend -C HEAD
 ui = auto
 
 [user]
-	email = thomas.royer@blackfire.io
+email = thomas.royer@blackfire.io
 name = Thomas Royer
 
 [core]
@@ -26,3 +26,6 @@ default = current
 
 [http]
 sslVerify = false
+
+[fetch]
+prune = true
