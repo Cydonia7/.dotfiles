@@ -16,3 +16,9 @@ out
 tags
 dandelion.yml
 *.pyc
+*.pdf
+*.aux
+*.ps
+*.fls
+*.dvi
+*.fdb_latexmk
