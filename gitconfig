@@ -26,3 +26,6 @@ default = current
 
 [http]
 sslVerify = false
+
+[fetch]
+prune = true
