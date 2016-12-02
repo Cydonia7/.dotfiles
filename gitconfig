@@ -15,11 +15,13 @@ oups = commit --amend -C HEAD
 ui = auto
 
 [user]
-email = thomas.royer@blackfire.io
+email = thomas.royer@sensiolabs.com
 name = Thomas Royer
 
 [core]
 excludesfile = ~/.gitignore
+	editor = vim
+	autocrlf = input
 
 [push]
 default = current
