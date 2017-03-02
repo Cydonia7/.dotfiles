@@ -1,0 +1,22 @@
+[global_config]
+  enabled_plugins = MavenPluginURLHandler,
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#1e1f28"
+    cursor_color = "#e4e4e4"
+    font = Monaco 9.5
+    foreground_color = "#ebece6"
+    palette = "#000000:#fb4245:#50fa7b:#f0fa8b:#49b9fe:#fb4cb3:#8be9fd:#ededec:#555555:#fb4245:#50fa7b:#f0fa8b:#49b9fe:#fb4cb3:#8be9fd:#ededec"
+    show_titlebar = False
+    use_system_font = False
+

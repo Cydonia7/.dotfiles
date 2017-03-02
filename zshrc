@@ -1,8 +1,7 @@
 export ZSH=$HOME/.oh-my-zsh
-export UPDATE_ZSH_DAYS=60
+export UPDATE_ZSH_DAYS=120
 
 alias tmux="tmux -2"
-alias latexmk="latexmk -pdf -pvc"
 
 ZSH_THEME="af-magic"
 plugins=(git)

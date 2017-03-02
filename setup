@@ -15,6 +15,7 @@ create_link tmux.conf
 create_link gitignore
 create_link gitconfig
 create_link config/awesome
+create_link config/terminator
 cd ~/.dotfiles
 git submodule init
 git submodule update
