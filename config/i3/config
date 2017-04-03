@@ -137,6 +137,7 @@ exec slack
 exec phpstorm
 exec terminator
 exec chromium
+exec thunderbird
 
 exec_always ./.screenlayout/config.sh
 exec_always sleep 0.1 && feh --bg-scale /home/cydo/Images/background.jpg
@@ -164,12 +165,16 @@ set $workspace4 "4: Code "
 workspace $workspace4 output Virtual2
 assign[class="jetbrains-phpstorm"] $workspace4
 
+set $workspace5 "5: Mails "
+workspace $workspace5 output Virtual1
+assign[class="Thunderbird"] $workspace5
+
 # switch to workspace
 bindsym $mod+ampersand workspace $workspace1
 bindsym $mod+eacute workspace $workspace2
 bindsym $mod+quotedbl workspace $workspace3
 bindsym $mod+apostrophe workspace $workspace4
-bindsym $mod+parenleft workspace 5
+bindsym $mod+parenleft workspace $workspace5
 bindsym $mod+section workspace 6
 bindsym $mod+egrave workspace 7
 bindsym $mod+exclam workspace 8
@@ -181,7 +186,7 @@ bindsym $mod+Shift+ampersand move container to workspace $workspace1
 bindsym $mod+Shift+eacute move container to workspace $workspace2
 bindsym $mod+Shift+quotedbl move container to workspace $workspace3
 bindsym $mod+Shift+apostrophe move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+5 move container to workspace $workspace5
 bindsym $mod+Shift+section move container to workspace 6
 bindsym $mod+Shift+egrave move container to workspace 7
 bindsym $mod+Shift+exclam move container to workspace 8
