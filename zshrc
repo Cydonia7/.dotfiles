@@ -2,6 +2,7 @@ export ZSH=$HOME/.oh-my-zsh
 export UPDATE_ZSH_DAYS=120
 
 alias tmux="tmux -2"
+alias f="fortune | ponysay"
 
 ZSH_THEME="af-magic"
 plugins=(git)
