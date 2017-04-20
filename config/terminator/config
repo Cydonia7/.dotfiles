@@ -1,6 +1,8 @@
 [global_config]
   enabled_plugins = MavenPluginURLHandler,
 [keybindings]
+  next_tab = <Primary>Tab
+  prev_tab = <Primary><Shift>Tab
 [layouts]
   [[default]]
     [[[child1]]]

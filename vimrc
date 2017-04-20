@@ -18,6 +18,7 @@ set expandtab
 set smarttab 
 set tw=0
 set hlsearch
+set cursorline
 
 " Specific filetype options
 au BufRead,BufNewFile *.md set filetype=markdown
