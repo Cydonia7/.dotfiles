@@ -18,5 +18,6 @@ fi
 export TERM=xterm-256color
 alias copy="xclip -in -selection clipboard"
 alias cgrep="grep --color=always"
+alias git-cleanup="git branch --merged | egrep -v \"(^\*|master|develop)\" | xargs git branch -d"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
