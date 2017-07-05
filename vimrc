@@ -43,10 +43,10 @@ set laststatus=2
 set ttimeoutlen=50
 let g:airline_theme='bubblegum'
 let g:airline_detect_whitespace=0
+let g:airline_powerline_fonts = 1
 
 " Tmux integration
 let g:tmuxline_preset = 'tmux'
-let g:tmuxline_powerline_separators = 0
 
 " Nerdtree
 map <Leader>n :NERDTreeToggle<CR>
