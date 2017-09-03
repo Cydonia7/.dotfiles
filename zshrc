@@ -20,4 +20,21 @@ alias copy="xclip -in -selection clipboard"
 alias cgrep="grep --color=always"
 alias git-cleanup="git branch --merged | egrep -v \"(^\*|master|develop)\" | xargs git branch -d"
 
+function countdown_seconds() {
+   date1=$((`date +%s` + $1));
+   while [ "$date1" -ge `date +%s` ]; do
+     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+     sleep 0.1
+   done
+}
+
+function countdown() {
+    countdown_seconds $(($1 * 60))
+}
+
+function alarm() {
+    countdown $1
+    aplay ~/Musique/sonnerie.wav
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
