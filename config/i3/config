@@ -138,7 +138,6 @@ bar {
 
 # stuff executed at the beginning of the session
 
-exec slack
 exec ./Teams/teams
 exec phpstorm
 exec terminator
@@ -161,7 +160,6 @@ assign[class="Terminator"] $workspace1
 
 set $workspace2 "2: Chat "
 workspace $workspace2 output Virtual2
-assign[class="Slack"] $workspace2
 assign[class="teams-for-linux"] $workspace2
 
 set $workspace3 "3: Web "
