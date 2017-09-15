@@ -70,8 +70,11 @@ inoremap <C-k> <ESC>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 " Delete a line
-nmap <C-d> dd
-imap <C-d> <ESC>ddi
+nnoremap <C-d> dd
+inoremap <C-d> <ESC>ddi
+" Set current word to uppercase
+nnoremap <C-u> viwU
+inoremap <C-u> <ESC>viwUi
 
 " Options for specific file types
 au BufRead,BufNewFile *.html.twig set filetype=html
