@@ -16,6 +16,4 @@ create_link gitignore
 create_link gitconfig
 create_link config/terminator
 create_link config/i3
-cd ~/.dotfiles
-git submodule init
-git submodule update
+

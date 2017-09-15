@@ -1,52 +1,47 @@
-" Pathogen
-execute pathogen#infect()
+call plug#begin('~/.vim/plugged')
+    Plug 'tpope/vim-sensible' " Sensible defaults for Vim
+    Plug 'godlygeek/csapprox' " Allow to use GUI vim themes
+    Plug 'daylerees/colour-schemes', { 'rtp': 'vim' } " Many color schemes
+    Plug 'mattn/emmet-vim' " Fast HTML generation
+    Plug 'ervandew/supertab' " Allows to use YCM and Ultisnips with Tab
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' } " Smart autocompletion
+    Plug 'SirVer/ultisnips' " Complete snippets
+    Plug 'honza/vim-snippets' " Base snippets
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
+    Plug 'scrooloose/syntastic' " Linting
+    Plug 'scrooloose/nerdtree' " Tree-based directory view
+    Plug 'airblade/vim-gitgutter' " Git gutter
+    Plug 'StanAngeloff/php.vim' " Up-to-date syntax
+    Plug 'tpope/vim-surround' " Handle surroundings
+call plug#end()
 
-" Basic vim configuration
-syntax on
-filetype plugin indent on
-let mapleader = ","
+" Make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
-" Basic editing
-set number
-set nocompatible
-set noignorecase
-set autoindent
-set shiftwidth=4 
-set softtabstop=4
+" Better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+set sidescroll=1 " Allows smooth-scrolling for long lines
+let g:is_posix=1 " Tell Vim we are in a POSIX terminal for better colors
+
+" Tab configuration
+set shiftround
+set shiftwidth=4
 set tabstop=4
-set expandtab 
-set smarttab 
-set tw=0
-set hlsearch
+set expandtab
+set smarttab
+
+" Basic editor config
+colorscheme zacks
+set lazyredraw
+set number relativenumber
 set cursorline
-
-" Specific filetype options
-au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile *.html.twig set filetype=html
-
-" 256 colors in term
-set t_Co=256
-let g:rehash256 = 1
-
-" Tomorrow
-" colorscheme Tomorrow-Night
-
-" Molokai + transparent background
-set background=dark
-colorscheme molokai
-
-hi Normal ctermfg=252 ctermbg=none
-hi LineNr ctermfg=239 ctermbg=none
-
-" Airline
-set laststatus=2
-set ttimeoutlen=50
-let g:airline_theme='bubblegum'
-let g:airline_detect_whitespace=0
-let g:airline_powerline_fonts = 1
-
-" Tmux integration
-let g:tmuxline_preset = 'tmux'
+let mapleader = ","
+set path+=**
 
 " Nerdtree
 map <Leader>n :NERDTreeToggle<CR>
@@ -65,32 +60,58 @@ nmap <Leader>v <C-W>v
 nmap <Leader>s <C-W>s
 nmap <Leader>d <C-W>q
 
-" Syntastic
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_mode_map = { 'mode': 'active',
-        \ 'active_filetypes': [],
-        \ 'passive_filetypes': ['html'] }
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '!'
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11'
-map <Leader>m :Errors<CR>
+" Options for specific file types
+au BufRead,BufNewFile *.html.twig set filetype=html
 
-" Fugitive
-nmap <Leader>gs :Gstatus<CR>
+" FZF config
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
-nnoremap <Leader>q :!pdflatex *.tex<CR><CR>
-
-" Ultisnips
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-" Disable readonly on write
-function! g:ChmodOnWrite()
-  if v:cmdbang
-    silent !chmod u+w %
-  endif
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
 endfunction
 
-autocmd BufWrite * call g:ChmodOnWrite()
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+let g:fzf_layout = { 'down': '~40%' }
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+nnoremap <C-t> :FZF<CR>
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['html'] }
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '!'
+
+" Doctrine annotations
+hi link phpDocTags phpInclude
+
