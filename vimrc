@@ -34,6 +34,7 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 set smarttab
+set scrolloff=15
 
 " Basic editor config
 colorscheme zacks
