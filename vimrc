@@ -42,24 +42,25 @@ set lazyredraw
 set number relativenumber
 set cursorline
 let mapleader = ","
+let maplocalleader = "\\"
 set path+=**
 
 " Nerdtree
-map <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
 
 " Buffer resizing
-nmap <Leader>+ :vertical res +5<CR>
-nmap <Leader>- :vertical res -5<CR>
+nnoremap <Leader>+ :vertical res +5<CR>
+nnoremap <Leader>- :vertical res -5<CR>
 
 " Buffer navigation
-nmap <Leader>k :wincmd k<CR>
-nmap <Leader>j :wincmd j<CR>
-nmap <Leader>h :wincmd h<CR>
-nmap <Leader>l :wincmd l<CR>
+nnoremap <Leader>k :wincmd k<CR>
+nnoremap <Leader>j :wincmd j<CR>
+nnoremap <Leader>h :wincmd h<CR>
+nnoremap <Leader>l :wincmd l<CR>
 
-nmap <Leader>v <C-W>v
-nmap <Leader>s <C-W>s
-nmap <Leader>d <C-W>q
+nnoremap <Leader>v <C-W>v
+nnoremap <Leader>s <C-W>s
+nnoremap <Leader>d <C-W>q
 
 " Edition helpers
 " Move lines up / down
@@ -69,12 +70,33 @@ inoremap <C-j> <ESC>:m .+1<CR>==gi
 inoremap <C-k> <ESC>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
+" Beginning / end of line
+nnoremap H ^
+nnoremap L $
 " Delete a line
 nnoremap <C-d> dd
 inoremap <C-d> <ESC>ddi
 " Set current word to uppercase
-nnoremap <C-u> viwU
-inoremap <C-u> <ESC>viwUi
+nnoremap <C-u> viwU<C-o>e<C-o>l
+inoremap <C-u> <C-o>h<C-o>viwU<C-o>e<C-o>l
+" Edit vimrc
+nnoremap <Leader>x ZZ
+nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <Leader>sv :source $MYVIMRC<cr>
+" Exit insert mode
+inoremap jk <esc>
+inoremap <esc> <nop>
+" Force me to use movement keys
+inoremap OA <nop>
+inoremap OB <nop>
+inoremap OC <nop>
+inoremap OD <nop>
+nnoremap <Left> <nop>
+nnoremap <Right> <nop>
+nnoremap <Up> <nop>
+nnoremap <Down> <nop>
+nnoremap ^ <nop>
+nnoremap $ <nop>
 
 " Options for specific file types
 au BufRead,BufNewFile *.html.twig set filetype=html
@@ -130,4 +152,19 @@ let g:syntastic_warning_symbol = '!'
 
 " Doctrine annotations
 hi link phpDocTags phpInclude
+
+" Abbreviations
+" iabbrev adn and
+
+" PHP-specific mapping
+augroup filetype_php
+    autocmd!
+    autocmd FileType php nnoremap <buffer> <localleader>c I//<esc>
+    autocmd FileType php set nowrap
+    autocmd FileType php iabbrev <buffer> return NOPENOPENOPE
+    autocmd FileType php iabbrev <buffer> rt return
+augroup END
+
+" Faster operator movements
+onoremap p i(
 
