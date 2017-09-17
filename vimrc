@@ -1,3 +1,4 @@
+" Plugins {{{
 call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-sensible' " Sensible defaults for Vim
     Plug 'godlygeek/csapprox' " Allow to use GUI vim themes
@@ -15,19 +16,27 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround' " Handle surroundings
     Plug 'tpope/vim-fugitive' " Git wrapper
 call plug#end()
+" }}}
 
-" Make YCM compatible with UltiSnips (using supertab)
+" Ultisnips / YCM compatibility using Supertab {{{
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" Better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" }}}
 
+" Basic editor config {{{
+colorscheme zacks
 set sidescroll=1 " Allows smooth-scrolling for long lines
 let g:is_posix=1 " Tell Vim we are in a POSIX terminal for better colors
+set lazyredraw
+set number relativenumber
+set cursorline
+let mapleader = ","
+let maplocalleader = "\\"
+set path+=**
 
 " Tab configuration
 set shiftround
@@ -36,16 +45,9 @@ set tabstop=4
 set expandtab
 set smarttab
 set scrolloff=15
+" }}}
 
-" Basic editor config
-colorscheme zacks
-set lazyredraw
-set number relativenumber
-set cursorline
-let mapleader = ","
-let maplocalleader = "\\"
-set path+=**
-
+" Keyboard configuration {{{
 " Nerdtree
 nnoremap <Leader>n :NERDTreeToggle<CR>
 
@@ -99,10 +101,15 @@ nnoremap <Down> <nop>
 nnoremap ^ <nop>
 nnoremap $ <nop>
 
-" Options for specific file types
-au BufRead,BufNewFile *.html.twig set filetype=html
+" Faster operator movements
+onoremap p i(
+onoremap np :<c-u>normal! f(vi(<cr>
 
-" FZF config
+" Abbreviations
+" iabbrev adn and
+" }}}
+
+" Fuzzy-finding (FZF) {{{
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
@@ -137,8 +144,9 @@ let g:fzf_colors =
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 nnoremap <C-t> :FZF<CR>
+" }}}
 
-" Syntastic
+" Syntastic {{{
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -146,27 +154,9 @@ let g:syntastic_always_populate_loc_list=1
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['html'] }
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
+" }}}
 
-" Doctrine annotations
-hi link phpDocTags phpInclude
-
-" Abbreviations
-" iabbrev adn and
-
-" PHP-specific mapping
-augroup filetype_php
-    autocmd!
-    autocmd FileType php nnoremap <buffer> <localleader>c I//<esc>
-    autocmd FileType php setlocal nowrap
-    autocmd FileType php iabbrev <buffer> return NOPENOPENOPE
-    autocmd FileType php iabbrev <buffer> rt return
-augroup END
-
-" Faster operator movements
-onoremap p i(
-onoremap np :<c-u>normal! f(vi(<cr>
-
-" Status line
+" Status line {{{
 set statusline=
 set statusline=%{fugitive#statusline()}\  " Git status
 set statusline+=%t         " Path to the file
@@ -175,4 +165,24 @@ set statusline+=%=        " Switch to the right side
 set statusline+=%l        " Current line
 set statusline+=/         " Separator
 set statusline+=%L        " Total lines
+" }}}
+
+" File-specific settings {{{
+augroup filetype_php
+    autocmd!
+    autocmd FileType php nnoremap <buffer> <localleader>c I//<esc>
+    autocmd FileType php setlocal nowrap
+    autocmd FileType php iabbrev <buffer> return NOPENOPENOPE
+    autocmd FileType php iabbrev <buffer> rt return
+    autocmd FileType php hi link phpDocTags phpInclude
+augroup END
+
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType vim setlocal foldlevelstart=0
+augroup END
+
+au BufRead,BufNewFile *.html.twig set filetype=html
+" }}}
 
