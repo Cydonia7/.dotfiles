@@ -167,4 +167,5 @@ augroup END
 
 " Faster operator movements
 onoremap p i(
+onoremap np :<c-u>normal! f(vi(<cr>
 
