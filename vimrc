@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'airblade/vim-gitgutter' " Git gutter
     Plug 'StanAngeloff/php.vim' " Up-to-date syntax
     Plug 'tpope/vim-surround' " Handle surroundings
+    Plug 'tpope/vim-fugitive' " Git wrapper
 call plug#end()
 
 " Make YCM compatible with UltiSnips (using supertab)
@@ -138,10 +139,6 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 nnoremap <C-t> :FZF<CR>
 
 " Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -170,7 +167,9 @@ onoremap p i(
 onoremap np :<c-u>normal! f(vi(<cr>
 
 " Status line
-set statusline=%f         " Path to the file
+set statusline=
+set statusline=%{fugitive#statusline()}\  " Git status
+set statusline+=%t         " Path to the file
 set statusline+=\ %y         " Filetype
 set statusline+=%=        " Switch to the right side
 set statusline+=%l        " Current line
