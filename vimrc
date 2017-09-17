@@ -160,7 +160,7 @@ hi link phpDocTags phpInclude
 augroup filetype_php
     autocmd!
     autocmd FileType php nnoremap <buffer> <localleader>c I//<esc>
-    autocmd FileType php set nowrap
+    autocmd FileType php setlocal nowrap
     autocmd FileType php iabbrev <buffer> return NOPENOPENOPE
     autocmd FileType php iabbrev <buffer> rt return
 augroup END
@@ -168,4 +168,12 @@ augroup END
 " Faster operator movements
 onoremap p i(
 onoremap np :<c-u>normal! f(vi(<cr>
+
+" Status line
+set statusline=%f         " Path to the file
+set statusline+=\ %y         " Filetype
+set statusline+=%=        " Switch to the right side
+set statusline+=%l        " Current line
+set statusline+=/         " Separator
+set statusline+=%L        " Total lines
 
