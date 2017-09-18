@@ -13,7 +13,7 @@ out
 *.synctex.gz
 *.log
 *_log
-tags
+tags*
 dandelion.yml
 *.pyc
 phpunit
