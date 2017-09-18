@@ -1,0 +1,24 @@
+global !p
+def bundle_name(path):
+	parts = [part[:-6] for part in path.split('/') if part.endswith('Bundle')]
+	return parts[0]
+
+def controller_name(filename):
+	return filename[:-14]
+
+def template_name(path, filename, action):
+	return '@%s/%s/%s.html.twig' % (bundle_name(path), controller_name(filename), action)
+endglobal
+
+snippet ac "Controller action" b!
+/**
+* @Route("${1:/products}", name="${2:product_list}")
+*/
+private function ${3:index}Action(${4:Request $request})
+{
+	${0:${VISUAL}}
+
+	return $this->render('`!p snip.rv = template_name(path, fn, t[3])`');
+}
+endsnippet
+
