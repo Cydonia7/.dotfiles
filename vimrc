@@ -14,6 +14,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'StanAngeloff/php.vim' " Up-to-date syntax
     Plug 'tpope/vim-surround' " Handle surroundings
     Plug 'tpope/vim-fugitive' " Git wrapper
+    Plug 'arnaud-lb/vim-php-namespace' " Use statements in PHP
 call plug#end()
 " }}}
 
@@ -39,6 +40,7 @@ set cursorline
 let mapleader = ","
 let maplocalleader = "\\"
 set path+=**
+set tags+=tags,tags.vendors
 
 " Tab configuration
 set shiftround
@@ -90,11 +92,6 @@ nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<cr>
 " Exit insert mode
 inoremap jk <esc>
-" Force me to use movement keys
-inoremap OA <nop>
-inoremap OB <nop>
-inoremap OC <nop>
-inoremap OD <nop>
 
 " Faster operator movements
 onoremap p i(
@@ -178,6 +175,27 @@ augroup filetype_vim
     autocmd FileType vim setlocal foldlevelstart=0
 augroup END
 
-au BufRead,BufNewFile *.html.twig set filetype=html
+autocmd BufRead,BufNewFile *.html.twig set filetype=html
+
+function! DelTagOfFile(file)
+  let fullpath = a:file
+  let cwd = getcwd()
+  let tagfilename = cwd . "/tags"
+  let f = substitute(fullpath, cwd . "/", "", "")
+  let f = escape(f, './')
+  let cmd = 'sed -i '''' "/' . f . '/d" "' . tagfilename . '"' " TODO : This is Mac-specific, make it cross-platform
+  let resp = system(cmd)
+endfunction
+
+function! UpdateTags()
+  let f = expand("%:p")
+  let cwd = getcwd()
+  let tagfilename = cwd . "/tags"
+  let cmd = 'ctags -a -f ' . tagfilename . ' --PHP-kinds=cfit ' . '"' . f . '"'
+  call DelTagOfFile(f)
+  let resp = system(cmd)
+endfunction
+
+autocmd BufWritePost *.php call UpdateTags()
 " }}}
 
