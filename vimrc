@@ -7,7 +7,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'ervandew/supertab' " Allows to use YCM and Ultisnips with Tab
     Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' } " Smart autocompletion
     Plug 'SirVer/ultisnips' " Complete snippets
-    Plug 'honza/vim-snippets' " Base snippets
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
     Plug 'scrooloose/syntastic' " Linting
     Plug 'scrooloose/nerdtree' " Tree-based directory view
@@ -25,6 +24,9 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips/'
+let g:UltiSnipsSnippetDirectories = [ "UltiSnips" ]
+let g:UltiSnipsEditSplit = "vertical"
 " }}}
 
 " Basic editor config {{{
@@ -88,18 +90,11 @@ nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<cr>
 " Exit insert mode
 inoremap jk <esc>
-inoremap <esc> <nop>
 " Force me to use movement keys
 inoremap OA <nop>
 inoremap OB <nop>
 inoremap OC <nop>
 inoremap OD <nop>
-nnoremap <Left> <nop>
-nnoremap <Right> <nop>
-nnoremap <Up> <nop>
-nnoremap <Down> <nop>
-nnoremap ^ <nop>
-nnoremap $ <nop>
 
 " Faster operator movements
 onoremap p i(
