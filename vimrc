@@ -41,6 +41,8 @@ let mapleader = ","
 let maplocalleader = "\\"
 set path+=**
 set tags+=tags,tags.vendors
+set grepprg=ag\ --vimgrep\ $*
+set grepformat=%f:%l:%c:%m
 
 " Tab configuration
 set shiftround
