@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive' " Git wrapper
     Plug 'arnaud-lb/vim-php-namespace' " Use statements in PHP
     Plug 'janko-m/vim-test' " Vim test runner
+    Plug 'tpope/vim-dispatch' " Dispatch commands asynchronously
 call plug#end()
 " }}}
 
@@ -167,6 +168,12 @@ set statusline+=%L        " Total lines
 augroup filetype_php
     autocmd!
     autocmd FileType php nnoremap <buffer> <localleader>c I//<esc>
+    autocmd FileType php let test#php#phpunit#executable = 'docker-compose run --rm tools ./vendor/bin/simple-phpunit'
+    autocmd FileType php nnoremap <buffer> <localleader>r :TestNearest<cr>
+    autocmd FileType php nnoremap <buffer> <localleader>t :TestFile<cr>
+    autocmd FileType php nnoremap <buffer> <localleader>y :TestSuite<cr>
+    autocmd FileType php nnoremap <buffer> <localleader>l :TestLast<cr>
+    autocmd FileType php nnoremap <buffer> <localleader>v :TestVisit<cr>
     autocmd FileType php setlocal nowrap
     autocmd FileType php iabbrev <buffer> return NOPENOPENOPE
     autocmd FileType php iabbrev <buffer> rt return
