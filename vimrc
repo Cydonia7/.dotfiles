@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround' " Handle surroundings
     Plug 'tpope/vim-fugitive' " Git wrapper
     Plug 'arnaud-lb/vim-php-namespace' " Use statements in PHP
+    Plug 'janko-m/vim-test' " Vim test runner
 call plug#end()
 " }}}
 
@@ -172,6 +173,12 @@ augroup filetype_php
     autocmd FileType php hi link phpDocTags phpInclude
     autocmd FileType php hi link phpDocTags phpInclude
     autocmd FileType php :syn match phpDocTags "@\%([^( ]*\)" containedin=phpDocComment nextgroup=phpDocParam,phpDocIdentifier skipwhite contained
+    function! IPhpInsertUse()
+        call PhpInsertUse()
+        call feedkeys('a',  'n')
+    endfunction
+    autocmd FileType php inoremap <localleader>u <Esc>:call IPhpInsertUse()<CR>
+    autocmd FileType php noremap <localleader>u :call PhpInsertUse()<CR>
 augroup END
 
 augroup filetype_vim
