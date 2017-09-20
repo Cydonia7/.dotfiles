@@ -98,6 +98,7 @@ inoremap jk <esc>
 " Faster operator movements
 onoremap p i(
 onoremap np :<c-u>normal! f(vi(<cr>
+onoremap nsq :<c-u>normal! 2f'vi'<cr>
 
 " Abbreviations
 " iabbrev adn and
@@ -169,6 +170,8 @@ augroup filetype_php
     autocmd FileType php iabbrev <buffer> return NOPENOPENOPE
     autocmd FileType php iabbrev <buffer> rt return
     autocmd FileType php hi link phpDocTags phpInclude
+    autocmd FileType php hi link phpDocTags phpInclude
+    autocmd FileType php :syn match phpDocTags "@\%([^( ]*\)" containedin=phpDocComment nextgroup=phpDocParam,phpDocIdentifier skipwhite contained
 augroup END
 
 augroup filetype_vim
