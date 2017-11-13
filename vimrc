@@ -17,6 +17,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'arnaud-lb/vim-php-namespace' " Use statements in PHP
     Plug 'janko-m/vim-test' " Vim test runner
     Plug 'tpope/vim-dispatch' " Dispatch commands asynchronously
+    Plug 'majutsushi/tagbar' " Tag browser for current file
+    Plug 'Townk/vim-autoclose' " Automatically close brackets / parenthesis
 call plug#end()
 " }}}
 
@@ -45,6 +47,12 @@ set path+=**
 set tags+=tags,tags.vendors
 set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
+set fillchars+=vert:│
+nnoremap <F8> :TagbarToggle<CR>
+
+" Color scheme configuration
+hi VertSplit ctermbg=NONE guibg=NONE
+hi! link Directory String
 
 " Tab configuration
 set shiftround
@@ -60,8 +68,10 @@ set scrolloff=15
 nnoremap <Leader>n :NERDTreeToggle<CR>
 
 " Buffer resizing
-nnoremap <Leader>+ :vertical res +5<CR>
-nnoremap <Leader>- :vertical res -5<CR>
+nnoremap <Up> :resize +2<CR>
+nnoremap <Down> :resize -2<CR>
+nnoremap <Left> :vertical res -2<CR>
+nnoremap <Right> :vertical res +2<CR>
 
 " Buffer navigation
 nnoremap <Leader>k :wincmd k<CR>
