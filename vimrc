@@ -48,6 +48,7 @@ set tags+=tags,tags.vendors
 set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
 set fillchars+=vert:│
+set mouse=a
 nnoremap <F8> :TagbarToggle<CR>
 
 " Color scheme configuration
