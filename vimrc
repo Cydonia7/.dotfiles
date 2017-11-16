@@ -68,12 +68,6 @@ set scrolloff=15
 " Nerdtree
 nnoremap <Leader>n :NERDTreeToggle<CR>
 
-" Buffer resizing
-nnoremap <Up> :resize +2<CR>
-nnoremap <Down> :resize -2<CR>
-nnoremap <Left> :vertical res -2<CR>
-nnoremap <Right> :vertical res +2<CR>
-
 " Buffer navigation
 nnoremap <Leader>k :wincmd k<CR>
 nnoremap <Leader>j :wincmd j<CR>
