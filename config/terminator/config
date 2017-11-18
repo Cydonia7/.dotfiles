@@ -16,8 +16,9 @@
   [[default]]
     background_color = "#1e1f28"
     cursor_color = "#e4e4e4"
-    font = Source Code Pro for Powerline Medium 13
+    font = Operator Mono Semi-Light 12
     foreground_color = "#ebece6"
     palette = "#000000:#fb4245:#50fa7b:#f0fa8b:#49b9fe:#fb4cb3:#8be9fd:#ededec:#555555:#fb4245:#50fa7b:#f0fa8b:#49b9fe:#fb4cb3:#8be9fd:#ededec"
+    scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False

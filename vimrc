@@ -5,7 +5,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'daylerees/colour-schemes', { 'rtp': 'vim' } " Many color schemes
     Plug 'mattn/emmet-vim' " Fast HTML generation
     Plug 'ervandew/supertab' " Allows to use YCM and Ultisnips with Tab
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' } " Smart autocompletion
     Plug 'SirVer/ultisnips' " Complete snippets
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
     Plug 'scrooloose/syntastic' " Linting
