@@ -14,11 +14,12 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#1e1f28"
-    cursor_color = "#e4e4e4"
-    font = Operator Mono Semi-Light 12
-    foreground_color = "#ebece6"
-    palette = "#000000:#fb4245:#50fa7b:#f0fa8b:#49b9fe:#fb4cb3:#8be9fd:#ededec:#555555:#fb4245:#50fa7b:#f0fa8b:#49b9fe:#fb4cb3:#8be9fd:#ededec"
+    font = Operator Mono Semi-Light 10
+    palette = "#1f1f1f:#f81118:#2dc55e:#ecba0f:#2a84d2:#4e5ab7:#1081d6:#d6dbe5:#d6dbe5:#de352e:#1dd361:#f3bd09:#1081d6:#5350b9:#0f7ddb:#ffffff"
+    background_color = "#131313"
+    cursor_color = "#b9b9b9"
+    foreground_color = "#d6dbe5"
+    background_image = None
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
