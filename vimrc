@@ -34,7 +34,7 @@ let g:UltiSnipsEditSplit = "vertical"
 " }}}
 
 " Basic editor config {{{
-colorscheme zacks
+silent! colorscheme zacks
 set sidescroll=1 " Allows smooth-scrolling for long lines
 let g:is_posix=1 " Tell Vim we are in a POSIX terminal for better colors
 set lazyredraw
