@@ -20,8 +20,8 @@ name = Thomas Royer
 
 [core]
 excludesfile = ~/.gitignore
-	editor = vim
-	autocrlf = input
+editor = vim
+autocrlf = input
 
 [push]
 default = current
@@ -31,3 +31,5 @@ sslVerify = false
 
 [fetch]
 prune = true
+[help]
+autocorrect = 1
