@@ -15,7 +15,7 @@ oups = commit --amend -C HEAD
 ui = auto
 
 [user]
-email = thomas.royer@sensiolabs.com
+email = cydonia572@gmail.com
 name = Thomas Royer
 
 [core]
