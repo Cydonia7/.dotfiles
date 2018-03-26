@@ -39,3 +39,18 @@ function alarm() {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Productivity
+
+alias zs="source ~/.zshrc"
+alias gam="git addm"
+alias gau="git addu"
+
+function mu() {
+    if [[ $# -eq 0 ]]; then
+        history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10
+    elif [[ $# -eq 1 ]]; then
+        history | awk '$2=="'$1'"{CMD[$3]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10
+    fi
+}
+
