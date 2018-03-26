@@ -5,7 +5,6 @@ alias tmux="tmux -2"
 alias f="fortune | ponysay"
 
 ZSH_THEME="af-magic"
-plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -43,8 +42,12 @@ function alarm() {
 # Productivity
 
 alias zs="source ~/.zshrc"
-alias gam="git addm"
-alias gau="git addu"
+
+alias gm="git addm"
+alias gu="git addu"
+alias gc="git commit -m"
+alias gca="git commit --amend"
+alias gp="git push"
 
 function mu() {
     if [[ $# -eq 0 ]]; then
