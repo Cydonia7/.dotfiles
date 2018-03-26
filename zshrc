@@ -41,19 +41,44 @@ function alarm() {
 
 # Productivity
 
+alias vs="vim ~/.zshrc"
+alias vsl="vim ~/.zshrc_local"
 alias zs="source ~/.zshrc"
 
-alias gm="git addm"
-alias gu="git addu"
-alias gc="git commit -m"
-alias gca="git commit --amend"
-alias gp="git push"
+alias g="git"
+alias gam="g addm"
+alias gau="g addu"
+alias gcm="g commit -m"
+alias gcma="g commit --amend"
+alias gp="g push"
+alias gpf="g push -f"
+alias gpu="g push -u"
+alias gco="g checkout"
+alias gcom="gco master"
+alias gcod="gco develop"
+alias gcob="gco -b"
+alias gco.="gco ."
+alias gs="g status"
+alias gdf="g df"
+alias gdfc="g dfc"
+alias gpl="g pull"
+alias grh="g reset --hard"
+alias grs="g reset --soft HEAD^"
+alias gcl="g clone"
+alias glg="g lg"
+alias gbr="g br"
+alias grm="g rm"
+alias grmc="grm --cached"
 
 function mu() {
     if [[ $# -eq 0 ]]; then
-        history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10
+        history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n15
     elif [[ $# -eq 1 ]]; then
-        history | awk '$2=="'$1'"{CMD[$3]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10
+        history | awk '$2=="'$1'"{CMD[$3]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n15
+    elif [[ $# -eq 2 ]]; then
+        history | awk '$2=="'$1'"&&$3=="'$2'"{CMD[$4]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n15
+    elif [[ $# -eq 3 ]]; then
+        history | awk '$2=="'$1'"&&$3=="'$2'"&&$4=="'$3'"{CMD[$5]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n15
     fi
 }
 
