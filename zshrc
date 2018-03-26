@@ -2,7 +2,6 @@ export ZSH=$HOME/.oh-my-zsh
 export UPDATE_ZSH_DAYS=120
 
 alias tmux="tmux -2"
-alias f="fortune | ponysay"
 
 ZSH_THEME="af-magic"
 
@@ -41,9 +40,22 @@ function alarm() {
 
 # Productivity
 
-alias vs="vim ~/.zshrc"
-alias vsl="vim ~/.zshrc_local"
+alias p="pwd"
+alias v="vim"
+alias r="rm"
+alias vs="v ~/.zshrc"
+alias vsl="v ~/.zshrc_local"
 alias zs="source ~/.zshrc"
+alias c="cd"
+alias m="make"
+alias mt="m test"
+alias ms="m start"
+alias msp="m stop"
+alias mr="m restart"
+alias mi="m install"
+alias md="m deploy"
+alias l="ls"
+alias ll="l -lah"
 
 alias g="git"
 alias gam="g addm"
@@ -69,6 +81,22 @@ alias glg="g lg"
 alias gbr="g br"
 alias grm="g rm"
 alias grmc="grm --cached"
+
+alias f="docker-compose"
+alias d="docker"
+alias dm="docker-machine"
+alias fe="f exec"
+alias fea="f exec api"
+alias fep="f exec php"
+alias fef="f exec front"
+alias fen="f exec nginx"
+alias fed="f exec db"
+alias few="f exec web"
+alias fu="f up"
+alias fd="f down"
+alias fl="f logs"
+alias fr="f run"
+alias fp="f ps"
 
 function mu() {
     if [[ $# -eq 0 ]]; then
