@@ -143,10 +143,10 @@ exec phpstorm
 exec terminator
 exec chromium
 exec thunderbird
+exec --no-startup-id xfsettingsd --sm-client-disable &
 
 exec_always ./.screenlayout/config.sh
 exec_always sleep 0.1 && feh --bg-scale /home/cydo/Images/background.jpg
-exec_always /usr/libexec/gnome-settings-daemon
 
 bindsym $mod+c exec chromium
 
