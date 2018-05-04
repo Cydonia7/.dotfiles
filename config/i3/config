@@ -139,7 +139,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Startup
-exec_always --no-startup-id "killall polybar; polybar example &"
+exec_always --no-startup-id "killall polybar; polybar -r example &"
 exec_always "feh --bg-scale ~/Images/background.jpg"
 
 # Gaps
