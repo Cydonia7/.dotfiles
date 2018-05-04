@@ -138,6 +138,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Startup
+exec_always --no-startup-id "killall polybar; polybar example &"
+exec_always "feh --bg-scale ~/Images/background.jpg"
+
 # Gaps
 for_window [class=".*"] title_format "   %title"
 for_window [class=".*"] border pixel 0
