@@ -11,17 +11,14 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# lock screen
+bindsym $mod+l exec betterlockscreen -l
+
 # kill focused window
 bindsym $mod+Shift+a kill
 
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show drun
-
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+m focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -141,6 +138,8 @@ bindsym $mod+r mode "resize"
 # Startup
 exec_always --no-startup-id "killall polybar; polybar -r example &"
 exec_always "feh --bg-scale ~/Images/background.jpg"
+exec_always --no-startup-id xautolock -time 5 -locker 'betterlockscreen -l'
+exec_always --no-startup-id numlockx on
 
 # Gaps
 for_window [class=".*"] title_format "   %title"
