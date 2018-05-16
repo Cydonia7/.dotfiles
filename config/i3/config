@@ -135,11 +135,15 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Assign windows
+for_window [class="Spotify"] move to workspace $ws9
+
 # Startup
 exec_always --no-startup-id "killall polybar; polybar -r example &"
 exec_always "feh --bg-scale ~/Images/background.jpg"
 exec_always --no-startup-id xautolock -time 5 -locker 'betterlockscreen -l'
 exec_always --no-startup-id numlockx on
+exec --no-startup-id spotify
 
 # Gaps
 for_window [class=".*"] title_format "   %title"
