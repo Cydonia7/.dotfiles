@@ -20,6 +20,9 @@ bindsym $mod+Shift+a kill
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show drun
 
+# start chrome
+bindsym $mod+c exec google-chrome-stable
+
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -100,6 +103,18 @@ bindsym $mod+Shift+egrave move container to workspace $ws7
 bindsym $mod+Shift+underscore move container to workspace $ws8
 bindsym $mod+Shift+ccedilla move container to workspace $ws9
 bindsym $mod+Shift+agrave move container to workspace $ws10
+
+# assign workspaces to monitors
+workspace $ws1 output Virtual1
+workspace $ws2 output Virtual1
+workspace $ws3 output Virtual1
+workspace $ws4 output Virtual1
+workspace $ws5 output Virtual1
+workspace $ws6 output Virtual2
+workspace $ws7 output Virtual2
+workspace $ws8 output Virtual2
+workspace $ws9 output Virtual2
+workspace $ws10 output Virtual2
 
 # change workspace monitor
 bindsym $mod+a exec python ~/.config/i3/cycle_workspace.py
