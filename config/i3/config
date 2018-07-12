@@ -162,6 +162,7 @@ exec_always --no-startup-id xautolock -time 5 -locker 'betterlockscreen -l'
 exec_always --no-startup-id numlockx on
 #exec --no-startup-id spotify
 exec_always setxkbmap fr
+exec_always compton
 
 # Gaps
 for_window [class=".*"] title_format "   %title"
