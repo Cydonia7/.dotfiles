@@ -9,6 +9,7 @@ alert = #0000ff
 spotify = #00ff00
 
 [bar/example]
+monitor = ${env:MONITOR:}
 width = 100%
 height = 27
 fixed-center = false
@@ -97,6 +98,7 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
+pin-workspaces=true
 
 ws-icon-0 = 9;
 ws-icon-default = >
