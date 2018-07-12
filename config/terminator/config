@@ -1,5 +1,6 @@
 [global_config]
   enabled_plugins = MavenPluginURLHandler,
+  tab_position = hidden
 [keybindings]
   next_tab = <Primary>Tab
   prev_tab = <Primary><Shift>Tab
@@ -14,8 +15,8 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#131313"
-    background_darkness = 1.0
+    background_darkness = 0.9
+    background_type = transparent
     cursor_color = "#b9b9b9"
     font = Cousine Bold 10
     foreground_color = "#d6dbe5"
