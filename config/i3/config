@@ -125,6 +125,11 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# YT mode
+bindsym $mod+Shift+s sticky toggle
+bindsym $mod+y fullscreen disable; floating enable; resize set 850 500; sticky enable; move window to position 830 20
+bindsym $mod+Shift+y fullscreen enable; floating disable; sticky disable
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode

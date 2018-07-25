@@ -8,7 +8,8 @@ dfc = diff --cached
 addm = !git-ls-files -m -z | xargs -0 git-add && git status
 addu = !git-ls-files -o --exclude-standard -z | xargs -0 git-add && git status
 rmm = !git ls-files -d -z | xargs -0 git-rm && git status
-lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+lg = !git-foresta --style=10 | less -RSX
+lga = !git-foresta --all --style=10 | less -RSX
 oups = commit --amend -C HEAD
 
 [color]
@@ -33,3 +34,6 @@ sslVerify = false
 prune = true
 [help]
 autocorrect = 1
+
+[merge]
+tool = meld
