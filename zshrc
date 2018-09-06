@@ -111,6 +111,11 @@ alias fl="f logs"
 alias fr="f run"
 alias fp="f ps"
 
+alias cat="bat"
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias man="tldr"
+
 function mu() {
     if [[ $# -eq 0 ]]; then
         history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n15
