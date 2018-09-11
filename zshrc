@@ -94,6 +94,7 @@ alias glga="g lga"
 alias gbr="g br"
 alias grm="g rm"
 alias grmc="grm --cached"
+alias pr="hub pull-request -c"
 
 alias f="docker-compose"
 alias d="docker"
