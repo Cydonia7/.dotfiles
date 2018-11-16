@@ -1,7 +1,9 @@
 #!/usr/bin/env python
  
-import i3
+import i3ipc
 import pprint
+
+i3 = i3ipc.Connection()
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -16,4 +18,4 @@ output = list(filter(lambda s: s['active']==True, outputs))
 other_workspace = list(filter(lambda s: s['name']!=workspace[0]['output'], output))
 
 # send current to the no-active one
-i3.command('move', 'workspace to output '+other_workspace[0]['name'])
+i3.command('move workspace to output '+other_workspace[0]['name'])

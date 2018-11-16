@@ -5,7 +5,8 @@ rofi.color-normal: argb:02000000,#D8DEE9,argb:02000000,argb:02000000,#EBCB8B
 rofi.color-active: argb:02000000,#D8DEE9,argb:02000000,argb:02000000,#D8DEE9
 rofi.color-urgent: argb:02000000,#D8DEE9,argb:02000000,argb:02000000,#D8DEE9
 
-rofi.font: Roboto 12
+rofi.modi: drun,window
+rofi.font: Cantarell 12
 rofi.eh: 1
 rofi.line-margin: 10
 rofi.separator-style: solid

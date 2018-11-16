@@ -39,15 +39,6 @@ function alarm() {
     aplay ~/Musique/sonnerie.wav
 }
 
-docker_running=$(docker-machine ls | grep default)
-if [[ "$docker_running" == *"Stopped"* ]]
-then
-	echo "Docker is not running"
-elif [[ "$docker_running" == *"Running"* ]]
-then
-	eval "$(docker-machine env default)"
-fi
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Productivity
@@ -112,10 +103,9 @@ alias fl="f logs"
 alias fr="f run"
 alias fp="f ps"
 
-alias cat="bat"
 alias preview="fzf --preview 'bat --color \"always\" {}'"
-alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
-alias man="tldr"
+#alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+#alias man="tldr"
 
 function mu() {
     if [[ $# -eq 0 ]]; then
