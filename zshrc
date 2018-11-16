@@ -61,6 +61,7 @@ alias l="ls"
 alias ll="l -lah"
 
 alias g="git"
+alias ga="g add"
 alias gam="g addm"
 alias gau="g addu"
 alias gcm="g commit -m"

@@ -9,7 +9,7 @@ font pango:Noto Sans 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # lock screen
 bindsym $mod+l exec xautolock -locknow
@@ -160,6 +160,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Monitors
+bindsym $mod+m exec "python ~/.config/i3/on_monitor_change.py"
+
 # Audio
 bindsym F9 exec "amixer -q sset Master,0 1- unmute"
 bindsym F10 exec "amixer -q sset Master,0 1+ unmute"
@@ -172,21 +175,22 @@ bindsym F7 exec "playerctl --all-players next"
 
 # Assign windows
 for_window [class="Slack"] move to workspace $ws8
-for_window [class="X-terminal-emulator"] move to workspace $ws1
-for_window [class="X-terminal-emulator"] focus
+for_window [class="Alacritty"] move to workspace $ws1
+for_window [class="Alacritty"] focus
 for_window [class="Firefox"] move to workspace $ws2
 for_window [class="Firefox"] focus
 
 # Startup
-exec_always --no-startup-id "./.screenlayout/work2.sh"
+exec_always --no-startup-id "./.screenlayout/desktop.sh"
 exec_always --no-startup-id "~/.config/polybar/launch_polybar.sh"
 exec_always "feh --bg-scale ~/Pictures/background.jpg"
 exec_always --no-startup-id xautolock -time 5 -locker 'betterlockscreen -l'
 exec_always --no-startup-id numlockx on
 #exec --no-startup-id spotify
 exec_always setxkbmap fr
-exec_always compton
+exec_always --no-startup-id killall compton || /bin/true && compton -o 0.7 -O 0.05 -I 0.05 -m 0.9 -i 0.9 -c -f --focus-exclude "name *= 'i3lock'|| _NET_WM_STATE@[0]:32a = '_NET_WM_STATE_FULLSCREEN'" --fade-exclude "name = 'rofi'"
 exec slack
+exec_always "killall srandrd; srandrd -v -n python ~/.config/i3/on_monitor_change.py"
 
 # Gaps
 for_window [class=".*"] title_format "   %title"
