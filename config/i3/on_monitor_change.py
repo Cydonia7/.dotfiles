@@ -8,3 +8,5 @@ if dp1 or dp2:
 else:
     os.system('/home/thomas.royer/.screenlayout/laptop.sh')
 
+os.system('/home/thomas.royer/.config/polybar/launch_polybar.sh')
+
