@@ -184,18 +184,15 @@ for_window [class="Firefox"] focus
 exec_always --no-startup-id "./.screenlayout/desktop.sh"
 exec_always --no-startup-id "~/.config/polybar/launch_polybar.sh"
 exec_always "feh --bg-scale ~/Pictures/background.jpg"
-exec_always --no-startup-id xautolock -time 5 -locker 'betterlockscreen -l'
+exec_always --no-startup-id xautolock -time 5 -locker 'i3lock -i ~/Pictures/out.jpg'
 exec_always --no-startup-id numlockx on
 #exec --no-startup-id spotify
 exec_always setxkbmap fr
 exec_always --no-startup-id killall compton || /bin/true && compton -o 0.7 -O 0.05 -I 0.05 -m 0.9 -i 0.9 -c -f --focus-exclude "name *= 'i3lock'|| _NET_WM_STATE@[0]:32a = '_NET_WM_STATE_FULLSCREEN'" --fade-exclude "name = 'rofi'"
 exec slack
-exec_always "killall srandrd; srandrd -v -n python ~/.config/i3/on_monitor_change.py"
 
 # Gaps
 for_window [class=".*"] title_format "   %title"
 for_window [class=".*"] border pixel 0
 gaps inner 10
-#smart_gaps on
-#smart_borders on
 

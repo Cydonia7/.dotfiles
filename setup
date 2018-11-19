@@ -21,4 +21,5 @@ create_link config/i3
 create_link config/rofi
 create_link config/gtk-3.0
 create_link config/polybar
+create_link config/dunst
 
