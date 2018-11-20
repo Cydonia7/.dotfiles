@@ -164,14 +164,15 @@ bindsym $mod+r mode "resize"
 bindsym $mod+m exec "python ~/.config/i3/on_monitor_change.py"
 
 # Audio
-bindsym F9 exec "amixer -q sset Master,0 1- unmute"
-bindsym F10 exec "amixer -q sset Master,0 1+ unmute"
-bindsym F11 exec "amixer -q sset Master,0 0"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
+bindsym XF86AudioMute exec "~/.config/i3/toggle_mute.sh"
 
 # Spotify
-bindsym F5 exec "playerctl --all-players play-pause"
-bindsym F6 exec "playerctl --all-players previous"
-bindsym F7 exec "playerctl --all-players next"
+bindsym XF86AudioPlay exec "playerctl --all-players play-pause"
+bindsym XF86AudioStop exec "playerctl --all-players stop"
+bindsym XF86AudioPrev exec "playerctl --all-players previous"
+bindsym XF86AudioNext exec "playerctl --all-players next"
 
 # Assign windows
 for_window [class="Slack"] move to workspace $ws8

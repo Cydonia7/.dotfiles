@@ -116,6 +116,7 @@ label-muted =   Mute
 
 type = internal/pulseaudio
 use-ui-max = true
+mapped = true
 interval = 5
 
 [module/date]
