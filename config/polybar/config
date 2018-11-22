@@ -6,6 +6,7 @@ primary = #aaa
 secondary = #00ff00
 alert = #ff3d56
 spotify = #00ff00
+mails = #ff2222
 
 [bar/example]
 monitor = ${env:MONITOR:}
@@ -26,7 +27,7 @@ padding-right = 2
 
 module-margin = 3
 
-font-0 = "Ubuntu:pixelsize=11;1"
+font-0 = "Ubuntu:pixelsize=11;0"
 font-1 = "FontAwesome:pixelsize=10;1"
 
 modules-left = i3
@@ -63,7 +64,15 @@ index-sort = true
 wrapping-scroll = false
 pin-workspaces=true
 
-ws-icon-0 = 9;
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;-
+ws-icon-4 = 5;-
+ws-icon-5 = 6;-
+ws-icon-6 = 7;-
+ws-icon-7 = 8;
+ws-icon-8 = 9;
 ws-icon-default = >
 
 label-mode-padding = 2
@@ -71,28 +80,28 @@ label-mode-foreground = ${colors.primary}
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %icon% %index%
+label-focused = %icon%
 label-focused-foreground = ${colors.foreground}
 label-focused-background = ${colors.background}
 label-focused-underline = ${colors.alert}
-label-focused-padding = 2
+label-focused-padding = 5
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused-foreground = ${colors.primary}
-label-unfocused = %icon% %index%
-label-unfocused-padding = 2
+label-unfocused = %icon%
+label-unfocused-padding = 5
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %icon% %index%
+label-visible = %icon%
 label-visible-foreground = ${colors.foreground}
 label-visible-background = ${colors.background}
 label-visible-underline = ${colors.alert}
-label-visible-padding = 2
+label-visible-padding = 5
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %icon% %index%
+label-urgent = %icon%
 label-urgent-foreground = ${colors.alert}
-label-urgent-padding = 2
+label-urgent-padding = 5
 
 [module/spotify]
 type = custom/script
@@ -101,7 +110,7 @@ exec = "echo $(playerctl metadata artist) - $(playerctl metadata title)"
 click-left = i3-msg workspace 9
 interval = 5
 format=   <label>
-format-foreground= ${colors.spotify}
+format-underline = ${colors.spotify}
 label = %output%
 
 [module/mails]
@@ -109,6 +118,8 @@ type = custom/script
 exec = "~/.config/polybar/gmail/launch.py"
 interval = 60
 format =   <label>
+format-padding = 2
+format-underline = ${colors.mails}
 label = %output%
 
 [module/pulseaudio]

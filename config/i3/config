@@ -175,11 +175,14 @@ bindsym XF86AudioPrev exec "playerctl --all-players previous"
 bindsym XF86AudioNext exec "playerctl --all-players next"
 
 # Assign windows
-for_window [class="Slack"] move to workspace $ws8
 for_window [class="Alacritty"] move to workspace $ws1
 for_window [class="Alacritty"] focus
 for_window [class="Firefox"] move to workspace $ws2
 for_window [class="Firefox"] focus
+for_window [class="jetbrains-phpstorm"] move to workspace $ws3
+for_window [class="jetbrains-phpstorm"] focus
+for_window [class="Slack"] move to workspace $ws8
+for_window [class="Spotify"] move to workspace $ws9
 
 # Startup
 exec_always --no-startup-id "./.screenlayout/desktop.sh"
