@@ -1,0 +1,37 @@
+#!/bin/bash
+
+NOTIFY="notify-send --icon=lock"
+DISABLED_FILE="/tmp/locker_disabled"
+
+case $1 in
+start)
+    killall xautolock
+    xautolock -time 5 -locker 'i3lock -i ~/Pictures/out.jpg'
+    rm $DISABLED_FILE
+    ;;
+lock)
+    xautolock -enable
+    rm $DISABLED_FILE
+    xautolock -locknow
+    ;;
+enable)
+    xautolock -enable
+    $NOTIFY "Autolocker" "Locker is now enabled!"
+    rm $DISABLED_FILE
+    ;;
+disable)
+    xautolock -disable
+    $NOTIFY -u critical "Autolocker" "Locker is now disabled!"
+    touch $DISABLED_FILE
+    ;;
+toggle)
+    if [ -f $DISABLED_FILE ]; then
+        $0 enable
+    else
+        $0 disable
+    fi
+    ;;
+*)
+    echo 'Usage: autolocker [start]'
+    ;;
+esac

@@ -106,9 +106,9 @@ label-urgent-padding = 5
 [module/spotify]
 type = custom/script
 exec-if = "playerctl status | grep Playing"
-exec = "echo $(playerctl metadata artist) - $(playerctl metadata title)"
+exec = "~/.config/polybar/spotify.sh"
 click-left = i3-msg workspace 9
-interval = 5
+interval = 1
 format=   <label>
 format-underline = ${colors.spotify}
 label = %output%
