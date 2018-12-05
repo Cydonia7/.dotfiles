@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 export UPDATE_ZSH_DAYS=120
-export PATH=".:$PATH"
+export PATH=".:$HOME/.dotfiles/bin:$PATH"
 
 plugins=(z colored-man-pages)
 
@@ -113,7 +113,8 @@ alias fp="f ps"
 
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 #alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
-#alias man="tldr"
+
+alias alacritty_preview='ls .dotfiles/alacritty/colors/* | fzf --preview "docker run -v ${PWD}:/workdir mikefarah/yq yq merge -x -i .dotfiles/alacritty.yml {}; colortest"'
 
 function mu() {
     if [[ $# -eq 0 ]]; then
