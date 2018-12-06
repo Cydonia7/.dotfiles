@@ -86,6 +86,7 @@ alias glga="g lga"
 alias gbr="g br"
 alias grm="g rm"
 alias grmc="grm --cached"
+alias gsp="zsh -c 'cd ~/Projects && git standup -s -m 2'"
 alias pr="hub pull-request -c"
 
 gb() {
