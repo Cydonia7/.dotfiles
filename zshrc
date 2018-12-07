@@ -20,7 +20,6 @@ export TERM=xterm-256color
 alias copy="xclip -in -selection clipboard"
 alias cgrep="grep --color=always"
 alias git-cleanup="git branch --merged | egrep -v \"(^\*|master|develop)\" | xargs git branch -d"
-alias make="make -s" # Don't echo commands
 
 function countdown_seconds() {
    date1=$((`date +%s` + $1));
@@ -57,7 +56,8 @@ alias msp="m stop"
 alias mr="m restart"
 alias mi="m install"
 alias md="m deploy"
-alias l="ls"
+alias l="exa"
+alias ls="exa"
 alias ll="l -lah"
 
 alias g="git"
