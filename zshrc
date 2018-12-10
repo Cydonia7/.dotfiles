@@ -19,7 +19,6 @@ fi
 export TERM=xterm-256color
 alias copy="xclip -in -selection clipboard"
 alias cgrep="grep --color=always"
-alias git-cleanup="git branch --merged | egrep -v \"(^\*|master|develop)\" | xargs git branch -d"
 
 function countdown_seconds() {
    date1=$((`date +%s` + $1));
@@ -66,6 +65,7 @@ alias gam="g addm"
 alias gau="g addu"
 alias gcm="g commit -m"
 alias gcma="g commit --amend"
+alias gcman="g commit --amend --no-edit"
 alias gp="g push"
 alias gpf="g push -f"
 alias gpu="g push -u"
@@ -75,6 +75,8 @@ alias gcod="gco develop"
 alias gcob="gco -b"
 alias gco.="gco ."
 alias gs="g status"
+alias gst="g stash"
+alias gsta="gst apply"
 alias gdf="g df"
 alias gdfc="g dfc"
 alias gpl="g pull"
@@ -86,14 +88,26 @@ alias glga="g lga"
 alias gbr="g br"
 alias grm="g rm"
 alias grmc="grm --cached"
+alias gr="g rebase"
+alias gf="git fetch"
+alias gfa="gf --all"
+alias gap="gam && gcman && gpf"
 alias gsp="zsh -c 'cd ~/Projects && git standup -s -m 2'"
 alias pr="hub pull-request -c"
+alias git-cleanup="git branch --merged | egrep -v \"(^\*|master|develop)\" | xargs git branch -d"
 
 gb() {
     local branches branch
     branches=$(git branch -vv) &&
     branch=$(echo "$branches" | fzf +m) &&
     git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+gbd() {
+    local branches branch
+    branches=$(git branch -vv) &&
+    branch=$(echo "$branches" | fzf +m) &&
+    git branch -D $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
 alias f="docker-compose"
