@@ -125,6 +125,7 @@ alias fd="f down"
 alias fl="f logs"
 alias fr="f run"
 alias fp="f ps"
+alias sf="fep bin/console"
 
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 #alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
