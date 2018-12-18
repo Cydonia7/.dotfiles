@@ -77,6 +77,7 @@ alias gco.="gco ."
 alias gs="g status"
 alias gst="g stash"
 alias gsta="gst apply"
+alias gstp="gst pop"
 alias gdf="g df"
 alias gdfc="g dfc"
 alias gpl="g pull"
@@ -108,6 +109,14 @@ gbd() {
     branches=$(git branch -vv) &&
     branch=$(echo "$branches" | fzf +m) &&
     git branch -D $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+# Local delete of branch that was merged in upstream
+gld() {
+    branch=$(git branch | grep \* | cut -d ' ' -f2)
+    git checkout develop
+    git pull origin develop
+    git br -d $branch
 }
 
 alias f="docker-compose"
