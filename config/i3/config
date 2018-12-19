@@ -156,7 +156,16 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Monitors
-bindsym $mod+m exec "python ~/.config/i3/on_monitor_change.py"
+set $mode_screen Screen: [l]aptop [d]esktop [o]ther
+bindsym $mod+m mode $mode_screen
+mode "$mode_screen" {
+    bindsym $mod+l exec "~/.screenlayout/laptop.sh; ~/.dotfiles/config/polybar/launch_polybar.sh", mode "default"
+    bindsym $mod+d exec "~/.screenlayout/desktop.sh; ~/.dotfiles/config/polybar/launch_polybar.sh", mode "default"
+    bindsym $mod+o exec "~/.config/i3/monitor_layout.sh; ~/.dotfiles/config/polybar/launch_polybar.sh", mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
 
 # Audio
 bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
