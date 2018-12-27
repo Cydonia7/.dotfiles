@@ -14,6 +14,8 @@ width = 100%
 height = 26
 fixed-center = false
 
+tray-position = right
+
 underline-size = 3
 
 background = ${colors.background}
