@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 export UPDATE_ZSH_DAYS=120
-export PATH=".:$HOME/.dotfiles/bin:$PATH"
+export PATH=".:$HOME/.dotfiles/bin:./vendor/bin:$PATH"
 
 plugins=(z colored-man-pages)
 
