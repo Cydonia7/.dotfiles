@@ -15,12 +15,12 @@
 [plugins]
 [profiles]
   [[default]]
-    background_darkness = 0.9
-    background_type = transparent
+    background_darkness = 1.0
     cursor_color = "#b9b9b9"
-    font = Cousine Bold 10
+    font = Noto Sans Mono 9
     foreground_color = "#d6dbe5"
     palette = "#1f1f1f:#f81118:#2dc55e:#ecba0f:#2a84d2:#4e5ab7:#1081d6:#d6dbe5:#d6dbe5:#de352e:#1dd361:#f3bd09:#1081d6:#5350b9:#0f7ddb:#ffffff"
+    scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False

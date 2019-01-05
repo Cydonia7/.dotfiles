@@ -39,15 +39,6 @@ function alarm() {
     aplay ~/Musique/sonnerie.wav
 }
 
-docker_running=$(docker-machine ls | grep default)
-if [[ "$docker_running" == *"Stopped"* ]]
-then
-	echo "Docker is not running"
-elif [[ "$docker_running" == *"Running"* ]]
-then
-	eval "$(docker-machine env default)"
-fi
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Productivity
