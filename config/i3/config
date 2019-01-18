@@ -130,6 +130,9 @@ bindsym $mod+Shift+s sticky toggle
 bindsym $mod+y fullscreen disable; floating enable; resize set 850 500; sticky enable; move window to position 830 20
 bindsym $mod+Shift+y fullscreen enable; floating disable; sticky disable
 
+# Code mode
+bindsym $mod+k exec "~/.dotfiles/config/i3/colorize_code.sh"
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode

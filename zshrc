@@ -119,8 +119,12 @@ gld() {
     git br -d $branch
 }
 
-code_rtf() {
+code_rtf_file() {
     pygmentize -l $1 -f html -O style=colorful,noclasses=true $2 | xclip -selection clipboard -in  -t text/html
+}
+
+code_rtf() {
+    xclip -out -selection clipboard | pygmentize -l $1 -f html -O style=colorful,noclasses=true | xclip -selection clipboard -in  -t text/html
 }
 
 alias f="docker-compose"
