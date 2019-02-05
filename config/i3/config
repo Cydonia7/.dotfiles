@@ -14,7 +14,8 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 
 # lock screen
-bindsym $mod+l exec "~/.dotfiles/xkcd_lock.sh"
+#bindsym $mod+l exec "~/.dotfiles/xkcd_lock.sh"
+bindsym $mod+l exec "~/.config/i3/autolocker lock"
 bindsym $mod+Shift+l exec "~/.config/i3/autolocker toggle"
 
 # kill focused window

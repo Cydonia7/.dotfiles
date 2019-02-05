@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 export UPDATE_ZSH_DAYS=120
-export PATH=".:$HOME/.dotfiles/bin:./vendor/bin:$PATH"
+export PATH=".:$HOME/.dotfiles/bin:./vendor/bin:$HOME/.config/composer/vendor/bin:$PATH"
 
 plugins=(z colored-man-pages)
 
@@ -147,7 +147,7 @@ alias sf="fep bin/console"
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 #alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 
-alias alacritty_preview='ls .dotfiles/alacritty/colors/* | fzf --preview "docker run -v ${PWD}:/workdir mikefarah/yq yq merge -x -i .dotfiles/alacritty.yml {}; colortest"'
+alias alacritty_preview='ls .dotfiles/alacritty/colors/* | fzf --preview "docker run -v ${PWD}:/workdir mikefarah/yq yq merge -x -i .dotfiles/config/alacritty/alacritty.yml {}; colortest"'
 
 function mu() {
     if [[ $# -eq 0 ]]; then
@@ -160,3 +160,8 @@ function mu() {
         history | awk '$2=="'$1'"&&$3=="'$2'"&&$4=="'$3'"{CMD[$5]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n15
     fi
 }
+
+source <(kubectl completion zsh)
+eval "$(symfony-autocomplete)"
+alias watch="$HOME/Projects/watcher/bin/console watch"
+
