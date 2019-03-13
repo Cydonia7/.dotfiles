@@ -2,6 +2,8 @@ call plug#begin('~/.config/nvim/plugged')
     " Nerdtree
     Plug 'scrooloose/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
+
+    Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 call plug#end()
 
 let mapleader=" "
@@ -11,6 +13,16 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+
+" No arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
 
 " NerdTree
 autocmd StdinReadPre * let s:std_in=1
