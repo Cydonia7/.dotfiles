@@ -4,6 +4,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'Xuyuanp/nerdtree-git-plugin'
 
     Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+
+    Plug 'lifepillar/vim-mucomplete'
 call plug#end()
 
 let mapleader=" "
@@ -13,6 +15,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+set number
 
 " No arrow keys
 noremap <Up> <Nop>
@@ -23,6 +26,10 @@ nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
+
+inoremap <expr> <c-j> ("\<C-n>")
+inoremap <expr> <c-k> ("\<C-p>")
+inoremap jk <Esc>
 
 " NerdTree
 autocmd StdinReadPre * let s:std_in=1
@@ -48,4 +55,11 @@ call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+
+" Completion
+set completeopt+=menuone
+set completeopt+=noselect
+set shortmess+=c
+set belloff+=ctrlg
+let g:mucomplete#enable_auto_at_startup = 1
 

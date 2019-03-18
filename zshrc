@@ -1,3 +1,8 @@
+# Clear all functions and aliases
+unhash -mf "*"
+unhash -ma "*"
+. /etc/zsh/zshrc  # reload standard functions and aliases
+
 export ZSH=$HOME/.oh-my-zsh
 export UPDATE_ZSH_DAYS=120
 export PATH=".:$HOME/.dotfiles/bin:./vendor/bin:$HOME/.config/composer/vendor/bin:$PATH"
@@ -165,9 +170,28 @@ source <(kubectl completion zsh)
 eval "$(symfony-autocomplete)"
 alias watch="$HOME/Projects/watcher/bin/console watch"
 
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
 eval $(thefuck --alias)
+
+function chpwd() {
+    export PREVIOUS_CONFIG=$CURRENT_CONFIG
+
+    if [ -r $PWD/.zshrc ]; then
+        export CURRENT_CONFIG=$PWD/.zshrc
+    else
+        PROJECT_DIR=$(git rev-parse --show-toplevel 2>/dev/null)
+
+        if [ -r $PROJECT_DIR/.zshrc ]; then
+            export CURRENT_CONFIG=$PROJECT_DIR/.zshrc
+        else
+            export CURRENT_CONFIG=$HOME/.zshrc
+        fi
+    fi
+
+    if [ "$PREVIOUS_CONFIG" != "$CURRENT_CONFIG" ]; then
+        source $CURRENT_CONFIG
+    fi
+}
 
