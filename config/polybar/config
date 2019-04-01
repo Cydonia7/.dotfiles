@@ -34,7 +34,7 @@ font-1 = "FontAwesome:pixelsize=10;1"
 
 modules-left = i3
 modules-center = xwindow
-modules-right = mails spotify pulseaudio battery date
+modules-right = mails pulseaudio battery date
 
 cursor-click = pointer
 cursor-scroll = ns-resize

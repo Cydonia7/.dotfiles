@@ -119,8 +119,9 @@ gbd() {
 # Local delete of branch that was merged in upstream
 gld() {
     branch=$(git branch | grep \* | cut -d ' ' -f2)
-    git checkout develop
-    git pull origin develop
+    target=${1:-develop}
+    git checkout $target
+    git pull origin $target
     git br -d $branch
 }
 
@@ -168,7 +169,7 @@ function mu() {
 
 source <(kubectl completion zsh)
 eval "$(symfony-autocomplete)"
-alias watch="$HOME/Projects/watcher/bin/console watch"
+alias watcher="$HOME/Projects/watcher/bin/console watch"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
