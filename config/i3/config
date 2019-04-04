@@ -211,11 +211,11 @@ exec_always --no-startup-id "~/.config/polybar/launch_polybar.sh"
 exec_always "feh --bg-scale ~/Pictures/background.jpg"
 exec_always --no-startup-id "~/.config/i3/autolocker start"
 exec_always --no-startup-id numlockx on
-#exec --no-startup-id spotify
+#exec --no-startup-id padsp spotify # padsp allows ALSA software to work with pulseaudio
 exec_always setxkbmap fr
 exec_always --no-startup-id killall compton || /bin/true && compton -o 0.7 -O 0.05 -I 0.05 -m 0.9 -i 0.9 -c -f --focus-exclude "name *= 'i3lock'|| _NET_WM_STATE@[0]:32a = '_NET_WM_STATE_FULLSCREEN'" --fade-exclude "name = 'rofi'"
 exec --no-startup-id nm-applet
-exec slack
+# exec slack
 
 # Gaps
 for_window [class=".*"] title_format "   %title"

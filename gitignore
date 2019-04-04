@@ -24,4 +24,5 @@ phpunit
 *.dvi
 *.fdb_latexmk
 .zshrc
+.php_cs.cache
 
