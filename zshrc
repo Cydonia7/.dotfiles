@@ -196,3 +196,5 @@ function chpwd() {
     fi
 }
 
+alias retirement='curl https://www.timeanddate.com/scripts/dateserver.php\?mode\=workdays\&d2\=30\&m2\=04\&y2\=2019\&ti\=on\&atyp\=0\&ach\=3 2>/dev/null | grep -oP "Result: \K[0-9]+" | xargs printf "%d jours"'
+
