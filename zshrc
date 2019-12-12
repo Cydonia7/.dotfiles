@@ -60,8 +60,8 @@ alias msp="m stop"
 alias mr="m restart"
 alias mi="m install"
 alias md="m deploy"
-alias l="exa"
-alias ls="exa"
+#alias l="exa"
+#alias ls="exa"
 alias ll="l -lah"
 
 alias g="git"
@@ -167,14 +167,14 @@ function mu() {
     fi
 }
 
-source <(kubectl completion zsh)
-eval "$(symfony-autocomplete)"
+#source <(kubectl completion zsh)
+#eval "$(symfony-autocomplete)"
 alias watcher="$HOME/Projects/watcher/bin/console watch"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-eval $(thefuck --alias)
+#eval $(thefuck --alias)
 
 function chpwd() {
     export PREVIOUS_CONFIG=$CURRENT_CONFIG
